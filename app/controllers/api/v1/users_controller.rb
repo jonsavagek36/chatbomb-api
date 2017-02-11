@@ -3,9 +3,9 @@ class Api::V1::UsersController < ApplicationController
 
   def sign_in
     data = JSON.parse(request.body.read)
-    @user = User.find_by fb_id: data["fb_id"]
+    @user = User.find_by facebook_id: data["facebook_id"]
     if @user.nil?
-      @user = User.create!(fb_id: data["fb_id"], fb_photo: data["fb_photo"])
+      @user = User.create!(facebook_id: data["facebook_id"], fb_photo: data["facebook_pic"])
       render json: { user: @user, new_user: true }
     else
       render json: { user: @user, new_user: false}
@@ -15,7 +15,7 @@ class Api::V1::UsersController < ApplicationController
   def set_email
     data = JSON.parse(request.body.read)
     @user = User.find_by id: data["id"]
-    @user.fb_email = data["fb_email"]
+    @user.fb_email = data["email"]
     @user.save
     render json: { fb_email: @user.fb_email }
   end
