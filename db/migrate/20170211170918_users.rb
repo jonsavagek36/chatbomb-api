@@ -5,7 +5,7 @@ class Users < ActiveRecord::Migration[5.0]
       t.string :facebook_pic
       t.string :screen_name
       t.string :email
-      t.integer :points
+      t.integer :points, default: 0
 
       t.timestamps
     end
