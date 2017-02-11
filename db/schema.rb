@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20170211170954) do
     t.string   "facebook_pic"
     t.string   "screen_name"
     t.string   "email"
+    t.integer  "points"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
