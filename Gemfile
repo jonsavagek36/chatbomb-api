@@ -6,6 +6,7 @@ gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
+gem 'rack-cors', require: 'rack/cors'
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
@@ -20,6 +21,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda'
   gem 'valid_attribute'
+  gem 'shoulda-matchers'
 end
 
 group :production do
