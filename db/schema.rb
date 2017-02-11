@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20170211170954) do
     t.integer "user_id",   null: false
     t.integer "friend_id", null: false
   end
-
+ 
   create_table "requests", force: :cascade do |t|
     t.integer  "sender_id",   null: false
     t.integer  "receiver_id", null: false
@@ -28,13 +28,13 @@ ActiveRecord::Schema.define(version: 20170211170954) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "facebook_id",              null: false
+    t.string   "facebook_id",  null: false
     t.string   "facebook_pic"
     t.string   "screen_name"
     t.string   "email"
-    t.integer  "points",       default: 0
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "points"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end
