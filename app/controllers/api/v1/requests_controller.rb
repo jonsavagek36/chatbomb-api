@@ -15,7 +15,7 @@ class Api::V1::RequestsController < ApplicationController
 
   def send_request
     data = JSON.parse(request.body.read)
-    @receiver = User.find_by fb_email: data["receiver_email"]
+    @receiver = User.find_by email: data["receiver_email"]
     if @receiver.nil?
       render json: { message: "User does not exist." }
     else
