@@ -9,7 +9,7 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
- 
+
 ActiveRecord::Schema.define(version: 20170211170954) do
 
   # These are extensions that must be enabled in order to support this database
@@ -28,13 +28,13 @@ ActiveRecord::Schema.define(version: 20170211170954) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "facebook_id",  null: false
+    t.string   "facebook_id",              null: false
     t.string   "facebook_pic"
     t.string   "screen_name"
     t.string   "email"
-    t.integer  "points"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "points",       default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
 end
