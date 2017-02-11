@@ -5,6 +5,7 @@ class Users < ActiveRecord::Migration[5.0]
       t.string :facebook_pic
       t.string :screen_name
       t.string :email
+      t.integer :points
 
       t.timestamps
     end
