@@ -24,10 +24,21 @@ class Api::V1::UsersController < ApplicationController
   def sign_in
     data = JSON.parse(request.body.read)
     @user = User.find_by facebook_id: data["facebook_id"]
+
     if @user.nil?
       render json: { success: false }
     else
-      render json: { success: true, user: @user }
+      @requests = @user.requests_received
+      @requesters = []
+      @requests.each do |request|
+        @requests << User.find(request.sender_id)
+      end
+      @friendships = @user.friends
+      @friends = []
+      @friendships.each do |friendship|
+        @friends << User.find(friendship.friend_id)
+      end
+      render json: { success: true, user: @user, requests: @requests, friends: @friends }
     end
   end
 
