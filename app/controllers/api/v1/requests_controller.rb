@@ -38,6 +38,7 @@ class Api::V1::RequestsController < ApplicationController
     @one = Friend.create!(user_id: @friend_one, friend_id: @friend_two)
     @two = Friend.create!(user_id: @friend_two, friend_id: @friend_one)
     if @one.save! && @two.save!
+      @request.destroy
       render json: { message: 'Friend added.' }
     else
       render json: { message: 'Acceptance failed.' }
