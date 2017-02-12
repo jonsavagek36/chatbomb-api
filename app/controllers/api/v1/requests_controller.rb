@@ -9,7 +9,7 @@ class Api::V1::RequestsController < ApplicationController
     @requests.each do |request|
       @requesters << User.find(request.sender_id)
     end
-    render json: @requesters
+    render json: { requests: @requesters }
   end
 
 end
