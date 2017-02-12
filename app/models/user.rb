@@ -7,3 +7,4 @@ class User < ApplicationRecord
   has_many :chatters, class_name: 'Friend', foreign_key: 'user_id'
 
 end
+ 

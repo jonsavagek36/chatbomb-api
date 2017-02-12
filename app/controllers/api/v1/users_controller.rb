@@ -20,7 +20,7 @@ class Api::V1::UsersController < ApplicationController
       render json: { success: false }
     end
   end
-
+ 
   def sign_in
     data = JSON.parse(request.body.read)
     @user = User.find_by facebook_id: data["facebook_id"]
