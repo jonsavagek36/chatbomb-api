@@ -7,11 +7,12 @@ class Api::V1::RequestsController < ApplicationController
     @requests = @user.requests_received
     @requesters = []
     @request_ids = []
+    @requests = []
     @requests.each do |request|
-      @request_ids << request.id
-      @requesters << User.find(request.sender_id)
+      request_sender = User.find(request.sender_id)
+      @requests << { requester: requester_sender, request_id: request.id }
     end
-    render json: { requests: { requesters: @requesters, request_ids: @request_ids } }
+    render json: @requests
   end
 
   def send_request
